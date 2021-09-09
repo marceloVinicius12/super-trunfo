@@ -37,10 +37,26 @@ h2{
     margin-bottom: 20px;
     margin-right: auto;
     margin-left: auto;
+
+    background-size: 350px 300px;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 10px;
+    border-radius: 33px;
 }
 #carta-jogador img,
 #carta-maquina img{
     width: inherit;
     height: inherit;
 
+}
+.nome-personagem-jogador{
+    position: relative;
+    transform: translateY(-492px);
+}
+.atributos-jogador{
+    position: relative;
+    transform: translateY(-210px);
+    list-style: none;
+    padding: 0;
 }
