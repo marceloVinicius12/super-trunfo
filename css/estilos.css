@@ -50,13 +50,18 @@ h2{
     height: inherit;
 
 }
-.nome-personagem-jogador{
+
+.nome-personagem-jogador,
+.nome-personagem-maquina{
     position: relative;
     transform: translateY(-492px);
 }
-.atributos-jogador{
+.atributos-jogador,
+.atributos-maquina{
     position: relative;
     transform: translateY(-210px);
     list-style: none;
     padding: 0;
+    color: rgb(250, 250, 250);
 }
+
