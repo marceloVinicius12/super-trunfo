@@ -66,7 +66,7 @@ const seya ={
 const cartas = [ naruto , batman, darthvader, Caitlyn, bubassauro, capita , seya]; /*declaração de quais sao as cartas*/
 let cartaJogador, cartaMaquina;
 function SortearCarta(){          
-    const numeroDeCartas = 7; 
+    const numeroDeCartas = cartas.length; 
     let numeroCartaJogador = parseInt(Math.random()*numeroDeCartas); /*codigo para sortear as cartas*/
     let numeroCartaMaquina = parseInt(Math.random()*numeroDeCartas);
     while(numeroCartaJogador == numeroCartaMaquina){ /*while faz que nao haja repetição de carta pq enquanto as duus forem iguais ele repete o sorteio*/
@@ -115,9 +115,21 @@ btnSortear.onclick = () => {
     SortearCarta();
     ExibirCartaJogador();
   
-    document.querySelector("#btnJogar").disabled = false
+    document.querySelector("#btnJogar").disabled = false;
 };
 const btnJogar = document.querySelector("#btnJogar");
 btnJogar.onclick = () => {
     ExibirCartaMaquina();
+    let atributoEscolhido = document.querySelector("input[name='atributo']:checked").value;
+   let atributoJogador = (cartaJogador.atributos[atributoEscolhido]);
+   let atributoMaquina = (cartaMaquina.atributos[atributoEscolhido]);
+
+   if(atributoJogador == atributoMaquina){
+       document.querySelector("#resultado").innerHTML = "<h1>EMPATE</h1>"
+   }else if(atributoJogador > atributoMaquina){
+       document.querySelector("#resultado").innerHTML = "<h1>JOGADOR VENCEU !!!!</h1>";
+   }else if(atributoJogador < atributoMaquina){
+       document.querySelector("#resultado").innerHTML = "<h1>MAQUINA VENCEU !!!!</h1>";
+   }
+
 }
