@@ -91,10 +91,15 @@ function ExibirCartaMaquina(){
     document.querySelector(".nome-personagem-maquina").innerHTML = cartaMaquina.nome;
    
     let listaDeAtributosDaCarta = document.querySelector(".atributos-maquina");
-    listaDeAtributosDaCarta.innerHTML = PegarAtributos(cartaMaquina.atributos);
+    listaDeAtributosDaCarta.innerHTML = PegarAtributosMaquina(cartaMaquina.atributos);
 }
 
-function PegarAtributosMaquina(){
+function PegarAtributosMaquina(atributosDaCarta){
+    let listaDeAtributos = ""; /* pega os atributos da cartas sem o botao radio*/
+    for(let atributo in atributosDaCarta){
+        listaDeAtributos += `<li>${atributo} : ${atributosDaCarta[atributo]}</li>`
+    }
+    return listaDeAtributos;
 
 }
 function PegarAtributos(atributosDaCarta){
@@ -105,12 +110,14 @@ botaoRadio = `<input type="radio" name="atributo"  value="${atributo}">`;
     }
     return listaDeAtributos;
 }
-
 const btnSortear = document.querySelector("#btnSortear"); /*faz com que o botao faça o sorteio das cartas */
 btnSortear.onclick = () => {
     SortearCarta();
     ExibirCartaJogador();
-    ExibirCartaMaquina();
-    
+  
     document.querySelector("#btnJogar").disabled = false
 };
+const btnJogar = document.querySelector("#btnJogar");
+btnJogar.onclick = () => {
+    ExibirCartaMaquina();
+}
